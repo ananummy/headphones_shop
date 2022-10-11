@@ -1,0 +1,348 @@
+$main-color: #EAEAEA;
+$card-color: #FFFFFF;
+$main-font-color: #101010;
+$font-color: #838383;
+$special-font-color: #FFA542;
+$title-cardocolor: #1C1C27;
+
+@mixin flexbox ($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin margins ($top, $bottom, $left, $right) {
+    margin-top: $top;
+    margin-bottom: $bottom;
+    margin-left: $left;
+    margin-right: $right;
+}
+@mixin paddinds ($top, $bottom, $left, $right) {
+    padding-top: $top;
+    padding-bottom: $bottom;
+    padding-left: $left;
+    padding-right: $right;
+}
+@mixin fonts ($weight, $size, $height) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+}
+
+body {
+    background-color: $main-color;
+    max-width: 1440px;
+    @include margins(0, 0, auto, auto);
+}
+
+.container {
+    @include margins(0, 0, auto, auto);
+    max-width: 1100px;
+}
+
+li {
+    list-style: none;
+}
+
+.logo {
+    @include fonts(700, 25px, 30px);
+    color: $main-font-color;
+    cursor: pointer;
+}
+
+.header-container {
+    height: 60px;
+    @include flexbox(row, space-between, center);
+    ul {
+        @include flexbox(row, space-around, center);
+        margin: 0;
+        padding: 0;
+        width: 120px;
+    }
+} 
+
+.basket,
+.favorite {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    cursor: pointer;
+    img {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        z-index: 1;
+    }
+    div {
+        position: absolute;
+        width: 17.4px;
+        height: 17.4px;
+        background-color: $special-font-color;
+        border-radius: 50%;
+        left: 35px;
+        bottom: 30px;
+        z-index: 2;
+        color: #FFFFFF;
+        text-align: center;
+        @include fonts(500, 15px, 18px);
+    }
+}
+
+.none {
+    display: none;
+}
+
+.main-container {
+    @include margins(28px, 20px, auto, auto);
+}
+
+article {
+    p {
+        @include paddinds(0, 0, 0, 0);
+        @include margins(0, 20px, 0, 0);
+        @include fonts(600, 20px, 24px);
+        color: $font-color;
+    }
+}
+
+article:nth-child(2) {
+    margin-top: 20px;
+}
+
+.headphones-container,
+.wirelessHeadphones-container {
+    @include flexbox(row, space-between, flex-start);
+    flex-wrap: wrap;
+    row-gap: 30px;
+    .item {
+        background-color: $card-color;
+        border-radius: 30px;
+        width: 350px;
+        height: 407px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        @include flexbox(column, space-between, center);
+        cursor: pointer;
+        .item_img {
+           @include margins(auto, auto, auto, auto);
+           display: block;
+        }
+        
+        .info {
+            width: 306.04px;
+            height: 67.89px;
+            display: grid;
+            grid-template-rows: repeat(2, auto);
+            grid-template-columns: repeat(2, auto);
+            justify-content: space-between;
+            row-gap: 25px;
+            @include margins(0, 32.6px, 21.96px, 22px);
+            p, div {
+                margin: 0;
+            }
+
+            .item_title {
+                @include fonts(600, 17px, 21px);
+                color: $title-cardocolor;
+            }
+            .item_price {
+                @include fonts(600, 17px, 21px);
+                color: $special-font-color;
+                text-align: right;
+            }
+
+            .item_rate {
+                @include flexbox(row, space-between, center);
+                width: 59.33px;
+                img {
+                    width: 23.33px;
+                    height: 21.93px;
+                }
+                p {
+                    @include fonts(600, 17px, 21px);
+                }
+            }
+
+            .item_button {
+                border: 0;
+                background-color: #FFFFFF;
+                align-self: center;
+                padding: 0;
+                @include fonts(600, 17px, 21px);
+                cursor: pointer;
+            }
+            .item_button:hover {
+                opacity: 0.2;
+            }
+        }
+    }
+}
+
+.footer-container {
+    div {
+        @include flexbox(row, space-between, flex-start);
+        @include paddinds(29px, 0, 29px, 27px);
+        nav {
+            ul {
+                @include flexbox(column, space-between, flex-start);
+                @include margins(0, 0, 0, 0);
+                @include fonts(400, 17px, 21px);
+                padding: 0;
+                height: 82.8px;
+                width: 101px;
+            }
+        }
+    
+        .links {
+            @include flexbox(column, space-between, space-between);
+            align-content: space-between;
+            flex-wrap: wrap;
+            width: 427px;
+            height: 82.2px;
+            @include paddinds(5px, 0, 0, 0);
+            a {
+                @include fonts(400, 17px, 21px);
+                text-decoration: none;
+                color: #000000;
+            }
+            a:hover,
+            .rus:hover,
+            .eng:hover {
+                opacity: 0.2;
+            }
+            .language {
+                width: 110px;
+                height: 20px;
+                padding: 0;
+                @include flexbox(row, space-between, center);
+                cursor: pointer;
+                .rus {
+                    margin: 0;
+                    @include fonts(700, 15px, 18px);
+                    color: $special-font-color;
+                }
+                .eng {
+                    margin: 0;
+                    @include fonts(500, 15px, 18px);
+                    color: $main-font-color;
+                }
+            }
+        }
+    
+        .social {
+            @include flexbox(row, space-between, center);
+            width: 126px;
+            a:hover {
+                opacity: 0.2;
+            }
+        }
+    }
+    background-color: $card-color;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 30px 0px 0px;
+    height: 149px;
+}
+
+
+h1 {
+    @include fonts(600, 20px, 24px);
+    color: $title-cardocolor;
+}
+.cart-page {
+    @include flexbox(row, space-between, flex-start);
+    min-height: 62vh;
+    .shopping-cart {
+        .shopping-cart_item {
+            width: 633px;
+            height: 218px;
+            background: $card-color;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+
+            position: relative;
+
+            .card_img {
+                width: 146px;
+                height: 136px;
+                position: absolute;
+                top: 18px;
+                left: 19px;
+            }
+
+            .deleteBasket {
+                position: absolute;
+                top: 18px;
+                right: 28px;
+            }
+
+            .card_name {
+                @include fonts(500, 17px, 21px);
+                color: $title-cardocolor;
+                margin: 0;
+                position: absolute;
+                top: 76px;
+                left: 189px;
+
+            }
+            .card_cost,
+            .card_final_cost {
+                @include fonts(600, 15px, 18px);
+                margin: 0;
+            }
+
+            .card_cost {
+                color: #AAAAAA;
+                position: absolute;
+                top: 109px;
+                left: 189px;
+            }
+
+            .card_final_cost {
+                color: $title-cardocolor;
+                position: absolute;
+                bottom: 21px;
+                right: 28px;
+            }
+
+            .plusMinus {
+                position: absolute;
+                top: 171px;
+                left: 17px;
+                width: 125px;
+                height: 30px;
+                @include flexbox(row, space-between, center);
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        @include flexbox(column, flex-start, flex-start);
+        gap: 15px;
+    }   
+    .order {
+        width: 349px;
+        height: 114px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+        background-color: $card-color;
+        div {
+            @include flexbox(row, space-between, flex-start);
+            @include paddinds(21px, 15px, 21px, 16px);
+            height: 19px;
+            p {
+                @include fonts(600, 15px, 18px);
+                color: #000000;
+            }
+        }
+        button {
+            @include fonts(600, 17px, 21px);
+            width: 349px;
+            height: 65px;
+            border-radius: 20px;
+            border: 0;
+            background-color: $main-font-color;
+            color: $card-color;
+        }
+    } 
+}
