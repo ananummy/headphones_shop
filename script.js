@@ -35,7 +35,7 @@ function addCardsForFirstPage() {
         cost.classList.add("item_price")
         cost.textContent = `${headphones[i].price} ₽`
     
-        star.src = "/assets/svg/VectorRate.svg"
+        star.src = "./assets/svg/VectorRate.svg"
         infoContainer.append(rate)
         rate.classList.add("item_rate")
         rate.append(star)
@@ -80,7 +80,7 @@ function addCardsForFirstPage() {
         cost.classList.add("item_price")
         cost.textContent = `${wirelessHeadphones[j].price} ₽`
 
-        star.src = "/assets/svg/VectorRate.svg"
+        star.src = "./assets/svg/VectorRate.svg"
         infoContainer.append(rate)
         rate.classList.add("item_rate")
         rate.append(star)
