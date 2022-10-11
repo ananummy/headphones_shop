@@ -45,21 +45,21 @@ const headphones = [
 
 const wirelessHeadphones = [
     {
-        img: "./assets/img/image_1.png",
+        img: "./assets/img/Image_1.png",
         title: "Apple AirPods",
         price: 9527,
         rate: 4.7,
         id: 2.1,
     },
     {
-        img: "./assets/img/image_2.png",
+        img: "./assets/img/Image_2.png",
         title: "GERLAX GH-04",
         price: 6527,
         rate: 4.7,
         id: 2.2,
     },
     {
-        img: "./assets/img/image_3.png",
+        img: "./assets/img/Image_3.png",
         title: "BOROFONE BO4",
         price: 7527,
         rate: 4.7,
